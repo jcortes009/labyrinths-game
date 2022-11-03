@@ -139,7 +139,9 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
       
       if (enemiesCollison) {
         // console.log('boom boom ');
-        gameOver()
+        
+        game.fillText(emojis['COLLITON'], playerPosition.x, playerPosition.y);
+        gameOver();
       } 
 
         game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
@@ -181,12 +183,12 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
   //console.log(lives)
   if(lives <= 0) {
     level = 0;
-    lives = 2;
+    lives = 3;
     timeStart = undefined;    
   }
    playerPosition.x = undefined;
    playerPosition.y = undefined;
-  startGame();
+
  }
 
 function showLives () {

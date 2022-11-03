@@ -10,6 +10,7 @@ const emojis = {
     'Y': '🛸',
     'I': '🌌 ',
     'PLAYER': ' 👨‍🚀 ',
+    'COLLITON': ' 💥 ',
     'GAME_OVER': '😐',
     'WIN': '🚀',
     'HEART': '❤',
