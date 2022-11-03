@@ -11,7 +11,7 @@ const spanTime = document.getElementById('span-time');
 const spanRecord = document.getElementById('span-record');
 const spanResult = document.getElementById('span-result');
 
-
+//
 let canvasSize;
 let elementsSize;
 let level = 0;
@@ -57,7 +57,7 @@ function startGame () {
     //console.log({canvasSize, elementsSize})
 
     game.font = elementsSize + 'px Verdana';
-    
+    game.fillStlyle= 'blue'
     game.textAlign = 'center';
 
     const map = maps[level];
@@ -263,7 +263,7 @@ function moveDown () {
 function restartGame () {
   const restartDiv = document.createElement('div');
   restartDiv.classList.add('restart-container');
-  restartDiv.textContent = 'Wanna try again?'  
+  restartDiv.textContent = '🚀You made it!!🚀 would you like to try again and set a new record?'  
   const restartButton = document.createElement('button');
   restartButton.classList.add('restart-button');
   restartButton.addEventListener('click',() => {location.reload()});
