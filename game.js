@@ -25,7 +25,7 @@ const playerPosition = {
     x: undefined,
     y: undefined,
 }
-const giftPosition = {
+const galaxyPosition = {
     x: undefined,
     y: undefined,
 }
@@ -74,7 +74,7 @@ function startGame () {
       showScore();
     }
     
-    const mapRows = map.trim().split('\n');//eliminate spaces at the bgining and the end, also in all the arrays
+    const mapRows = map.trim().split('\n');//eliminate spaces at the begining and the end, also in all the arrays
     const columnsOfmapRows = mapRows.map(row => row.trim().split(''));
 
     showLives();
@@ -91,15 +91,16 @@ function startGame () {
         // console.log(rowIndex);
 
         if (column == 'O') {
+          //planet earth position
             if (!playerPosition.x && !playerPosition.y) {
                 playerPosition.x = positionX;
                 playerPosition.y = positionY
-            // console.log(playerPosition);
             }
         } else if (column == 'I') {
-            giftPosition.x = positionX;
-            giftPosition.y = positionY;
-        } else if (column == 'X' ) {
+            galaxyPosition.x = positionX;
+            galaxyPosition.y = positionY;
+        } else if (column == 'X') {
+          //planets
           enemyPosition.push({
             x: positionX,
             y: positionY,
@@ -118,38 +119,35 @@ function startGame () {
 
 function movePlayer () {
 
-const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
-const giftCollisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
-const giftCollision = giftCollisionX && giftCollisionY;
+const galaxyCollisionX = playerPosition.x.toFixed(3) == galaxyPosition.x.toFixed(3);
+const galaxyCollisionY = playerPosition.y.toFixed(3) == galaxyPosition.y.toFixed(3);
+const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
 
-    if (giftCollision) {
-        console.log('Next level');
+    if (galaxyCollision) {
+        // console.log('Next level');
         levelWin();
     }
 
-      const enemyCollison = enemyPosition.find((enemy) => {
-        const enemyCollisonX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
-        const enemyCollisonY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
-        return enemyCollisonX && enemyCollisonY;
+      const enemiesCollison = enemyPosition.find((enemy) => {
+        const enemiesCollisonX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
+        const enemiesCollisonY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
+        return enemiesCollisonX && enemiesCollisonY;
       });
 
       // console.log(playerPosition);
       // console.log(enemyPosition);
       
-      if (enemyCollison) {
-
-        console.log('boom boom ');
-        // game.fillText(emojis['BOMB_COLLISION'], enemyCollison.x, enemyCollison.y);
+      if (enemiesCollison) {
+        // console.log('boom boom ');
         gameOver()
       } 
 
         game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
       
-
-
 }
+
  function levelWin () {
-  console.log('next!!');
+  // console.log('next!!');
   level++;
   startGame();
  }
@@ -157,8 +155,7 @@ const giftCollision = giftCollisionX && giftCollisionY;
   clearInterval(timeInterval);
 
   game.clearRect(0, 0, canvasSize, canvasSize);
-  // game.fillText('You made it!!', 280, 260);
-  // game.fillText(restartGame(), 280, 220);
+  
   restartGame()
 
   let recordTime = localStorage.getItem('record-time')
@@ -202,7 +199,6 @@ function showLives () {
 }
 
 function showTime () {
- 
   spanTime.innerHTML = Math.floor((Date.now() - timeStart)/1000);
 }
 
@@ -210,7 +206,7 @@ function showScore () {
  spanRecord.innerHTML = localStorage.getItem('record-time');
 }
 
-window.addEventListener('keyup', moveBYKeys);
+window.addEventListener('keydown', moveBYKeys);
 btnUp.addEventListener('click', moveUp);
 btnLeft.addEventListener('click', moveLeft);
 btnRight.addEventListener('click', moveRight);
@@ -273,4 +269,3 @@ function restartGame () {
   restartDiv.appendChild(restartButton);
   gameContainer.appendChild(restartDiv);
 }
-// restartGame();
