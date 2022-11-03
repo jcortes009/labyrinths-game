@@ -1,6 +1,6 @@
 /*
- * Reglas:
- * El final de cada nivel debe ser el inicio del siguiente
+ * Rules:
+ * the end of every level has to be the beginning of the next one
 */
 
 const emojis = {

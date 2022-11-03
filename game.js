@@ -128,16 +128,14 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
         levelWin();
     }
 
-      const enemiesCollison = enemyPosition.find((enemy) => {
-        const enemiesCollisonX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
-        const enemiesCollisonY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
-        return enemiesCollisonX && enemiesCollisonY;
+      const enemyCollison = enemyPosition.find((enemy) => {
+        const enemyCollisonX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
+        const enemyCollisonY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
+        return enemyCollisonX && enemyCollisonY;
       });
 
-      // console.log(playerPosition);
-      // console.log(enemyPosition);
-      
-      if (enemiesCollison) {
+     
+      if (enemyCollison) {
         // console.log('boom boom ');
         gameOver()
       } 
@@ -190,10 +188,7 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
  }
 
 function showLives () {
-  // const heartsArray = Array(lives).fill(emojis['HEART']);
-  // spanLives.innerHTML = '';
-  // heartsArray.forEach(heart => spanLives.append(heart));
-  // spanLives.innerHTML = heartsArray.join('');
+
   spanLives.innerHTML = emojis['HEART'].repeat(lives);
   
 }
@@ -239,24 +234,20 @@ function moveLeft () {
 }
 function moveRight () {
     if ((playerPosition.x - elementsSize) > canvasSize * 0.80) {
-        //console.log('out');
+        
       } else {
         playerPosition.x += (elementsSize * 0.93);
         startGame();
       }
-    //console.log('right right');
+  
 }
 function moveDown () {
     if ((playerPosition.y - elementsSize) > canvasSize * 0.84) {
-       // console.log('out');
       } else {
         playerPosition.y += (elementsSize * 0.97);
         startGame();
       }
-   
-     
-    //console.log('Down down down ');
-    
+  
 }
 function restartGame () {
   const restartDiv = document.createElement('div');
