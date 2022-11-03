@@ -1,0 +1,142 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body {
+    background-color: rgb(175, 189, 124);
+    color: #472148;  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  main {
+    height: 100vh;
+  }
+  
+  .game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 92vh;
+    width: 90vw;
+    margin: 0 auto;
+    
+  }
+  
+  canvas {
+    border: 4px solid #ff6600;
+    border-radius: 8px;
+    background: url('./pexels-alex-andrews-3805983.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .btns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  button {
+    background-color: #fdef05;
+    border-radius: 50%;
+    border-color: #ff6600;
+    font-family: inherit;
+    margin: 0;
+    padding: 5px 10px;
+    width: 50px;
+    height: 50px;
+  }
+  #up {
+    transform: rotate(90deg);
+    background-image: url('./blue-arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+  }
+  #left {
+    background-image: url('./blue-arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+    margin: 12px;
+  }
+  #right {
+    transform: rotate(180deg);
+    background-image: url('./blue-arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+    margin: 12px;
+  }
+  #down {
+    transform: rotate(270deg);
+    background-image: url('./blue-arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+  }
+  button:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .messages {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 460px;
+  }
+  
+  p {
+    
+    margin: 12px;
+  }
+  
+  #github-logo {
+    height: 40px;
+    width: 40px;
+    margin: 32px 50% 0;
+  }
+  .restart-container {
+    background-color: rgba(175, 189, 124, 0.633);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    padding: 8px;
+    top: 10%;
+    width: 44%;
+    height: 194px;
+    color: whitesmoke;
+    font-weight: 600;
+  }
+  .restart-button {
+    margin: 12px;
+    align-self: center;
+    background-color: #92bff7;
+    background-image: url('./refresh-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+  }
+  
+  @media (max-width: 440px) {
+    button { margin-top: 5px; }
+    #up, #down { margin-left: 100%; margin-right: 100%; }
+  }
