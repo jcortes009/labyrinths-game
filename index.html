@@ -4,26 +4,29 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./css/styles.css">
 <title>Labyrinths</title>
 </head>
 <body>
-<div class="game-container">
-<canvas id="game"></canvas>
-<div class="btns">
-<button id="up">up</button>
-<button id="left">left</button>
-<button id="right">right</button>
-<button id="down">down</button>
+    <main>
+    <div class="game-container">
+    <canvas id="game"></canvas>
+    <div class="btns">
+    <button id="up"></button>
+    <button id="left"></button>
+    <button id="right"></button>
+    <button id="down"></button>
+    </div>
+    <div class="messages">
+    
+    <p>Lives: <span id="span-lives"></span></p>
+    <p>Time: ⌛ <span id="span-time"></span></p>
+    <p>Record: 🏁 <span id="span-record"></span></p>
+     <p><span id="span-result"></span></p>
+    </div>
 </div>
-<div class="messages">
-
-<p>Lives: <span id="span-lives"></span></p>
-<p>Time: <span id="span-time"></span></p>
-<p>Score: <span id="span-score"></span></p>
-<p> <span id="span-record"></span></p>
-</div>
-</div>
+<a href="https://github.com/jcortes009/labyrinths-game"><img id="github-logo" src="./css/git-hub-icon.png" alt="github"></a>
+    </main>
 <script src="./maps.js"></script>
 <script src="./game.js"></script>
 </body>

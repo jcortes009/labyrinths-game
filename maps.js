@@ -5,50 +5,75 @@
 
 const emojis = {
     '-': ' ',
-    'O': '🚪 ',
-    'X': '💣',
-    'I': '🎁 ',
-    'PLAYER': '💀 ',
-    'BOMB_COLLISION': '🔥',
+    'O': '🌍',
+    'X': '🪐',
+    'Y': '🛸',
+    'I': '🌌 ',
+    'PLAYER': ' 👨‍🚀 ',
     'GAME_OVER': '😐',
-    'WIN': '🏆',
+    'WIN': '🚀',
     'HEART': '❤',
   };
+  //💣🌳🐒🦧🦊🐶👨‍🚀🎁🎇🌚🌑🏆
   
   const maps = [];
   maps.push(`
     IXXXXXXXXX
     -XXXXXXXXX
     -XXXXXXXXX
+    -XYXXXXXXX
     -XXXXXXXXX
+    -XXXXXYXXX
     -XXXXXXXXX
-    -XXXXXXXXX
-    -XXXXXXXXX
-    -XXXXXXXXX
+    -XXXYXXXXX
     -XXXXXXXXX
     OXXXXXXXXX
   `);
   maps.push(`
     O--XXXXXXX
-    X--XXXXXXX
+    X--XXXYXXX
     XX----XXXX
     X--XX-XXXX
     X-XXX--XXX
     X-XXXX-XXX
     XX--XX--XX
     XX--XXX-XX
-    XXXX---IXX
+    XXXY---IXX
     XXXXXXXXXX
     `);
   maps.push(`
-    I-----XXXX
-    XXXXX-XXXX
+    I-----XYXX
+    XXXYX-XXXX
     XX----XXXX
-    XX-XXXXXXX
+    XX-XXXXXYX
     XX-----XXX
-    XXXXXX-XXX
+    XXXXXX-XYX
     XX-----XXX
-    XX-XXXXXXX
+    YX-XXXXXXX
     XX-----OXX
     XXXXXXXXXX
+  `);
+  maps.push(`
+    O-----XXXX
+    XXXXX-XXXX
+    XX----XXXX
+    X--XXXXXX
+    XX-----XXX
+    XXXXXX-XXX
+    XXXXXX---X
+    XXXXXXX-X
+    -XXX-----X
+    -I---XXXXX
+  `);
+  maps.push(`
+    I--------X
+    -XXXX-XX-X
+    XX----XX-X
+    -XX-XXXX-X
+    -X---X---X
+    -XXXXX-XXX
+    -X-----XXX
+    -X-XXXXXXX
+    ---X---XXX
+    XOXXXXXXXX
   `);

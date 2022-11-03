@@ -1,20 +1,21 @@
 const canvas = document.getElementById('game');
 const game = canvas.getContext('2d');
 
+const gameContainer = document.querySelector('.game-container');
 const btnUp = document.getElementById('up');
 const btnLeft = document.getElementById('left');
 const btnRight = document.getElementById('right');
 const btnDown = document.getElementById('down');
 const spanLives = document.getElementById('span-lives');
 const spanTime = document.getElementById('span-time');
-const spanScore = document.getElementById('span-score');
 const spanRecord = document.getElementById('span-record');
+const spanResult = document.getElementById('span-result');
 
 
 let canvasSize;
 let elementsSize;
 let level = 0;
-let lives = 2;
+let lives = 3;
 
 let timeStart;
 let timePlayer;
@@ -37,15 +38,17 @@ window.addEventListener('resize', setCanvasSize);
 
 function setCanvasSize () {
     if(window.innerHeight > window.innerWidth) {
-        canvasSize = window.innerWidth * .80;
+        canvasSize = window.innerWidth * .70;
     } else {
-        canvasSize = window.innerHeight * .80;
+        canvasSize = window.innerHeight * .70;
     }
         canvas.setAttribute('width', canvasSize);
         canvas.setAttribute('height', canvasSize);
     
       elementsSize = canvasSize / 10;
 
+      playerPosition.x = undefined
+      playerPosition.y = undefined
       startGame();
 }
 
@@ -54,6 +57,7 @@ function startGame () {
     //console.log({canvasSize, elementsSize})
 
     game.font = elementsSize + 'px Verdana';
+    
     game.textAlign = 'center';
 
     const map = maps[level];
@@ -95,7 +99,7 @@ function startGame () {
         } else if (column == 'I') {
             giftPosition.x = positionX;
             giftPosition.y = positionY;
-        } else if (column == 'X'  ) {
+        } else if (column == 'X' ) {
           enemyPosition.push({
             x: positionX,
             y: positionY,
@@ -108,18 +112,8 @@ function startGame () {
     
 });
 
- 
-    // for (let row = 1; row <= 10; row++) {
-    // //  game.fillText(emojis['X'], (elementsSize * 1.26), (elementsSize * 0.97) * row);
-    // for( let column = 1; column <= 10; column++) {
-    //     game.fillText(emojis[columnsOfmapRows[row - 1][column - 1]], positionX * column, positionY * row);
-    // }
-    // }
-
-    // game.fillRect(0,0,100,100);
-    // game.clearRect(0,0,100,50);// el tercer argumento es el ancho
     movePlayer();
-    
+   
 }
 
 function movePlayer () {
@@ -145,12 +139,12 @@ const giftCollision = giftCollisionX && giftCollisionY;
       if (enemyCollison) {
 
         console.log('boom boom ');
-        game.fillText(emojis['BOMB_COLLISION'], enemyCollison.x, enemyCollison.y);
+        // game.fillText(emojis['BOMB_COLLISION'], enemyCollison.x, enemyCollison.y);
         gameOver()
-      } else {
+      } 
 
         game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
-      }
+      
 
 
 }
@@ -163,8 +157,9 @@ const giftCollision = giftCollisionX && giftCollisionY;
   clearInterval(timeInterval);
 
   game.clearRect(0, 0, canvasSize, canvasSize);
-  game.fillText('You made it!!', 300, 290);
-  game.fillText(emojis['WIN'], 300, 350);
+  // game.fillText('You made it!!', 280, 260);
+  // game.fillText(restartGame(), 280, 220);
+  restartGame()
 
   let recordTime = localStorage.getItem('record-time')
   let playerTime = Math.floor((Date.now() - timeStart)/1000);
@@ -172,13 +167,13 @@ const giftCollision = giftCollisionX && giftCollisionY;
   if (recordTime) {
     if (recordTime >= playerTime) {
       localStorage.setItem('record-time', playerTime);
-      spanRecord.innerHTML = 'New record! awesome!!';
+      spanResult.innerHTML = 'New record! awesome!!';
     } else {
-      spanRecord.innerHTML = "Sorry you couldn't achieve a new record";
+      spanResult.innerHTML = "Sorry you couldn't achieve a new record";
     }
   } else {
     localStorage.setItem('record-time', playerTime);
-    spanRecord.innerHTML = "First time? Let's try to  make a record";
+    spanResult.innerHTML = "First time? Let's try to  make a record";
 
   }
 
@@ -212,7 +207,7 @@ function showTime () {
 }
 
 function showScore () {
- spanScore.innerHTML = localStorage.getItem('record-time');
+ spanRecord.innerHTML = localStorage.getItem('record-time');
 }
 
 window.addEventListener('keyup', moveBYKeys);
@@ -228,8 +223,8 @@ function moveBYKeys(event) {
     else if (event.key == 'ArrowDown') moveDown();
 }
 function moveUp () {
-  if ((playerPosition.y - elementsSize) < elementsSize * 0.2) {
-    //console.log('fuera');
+  if ((playerPosition.y - elementsSize) < elementsSize * 0.84) {
+    //console.log('out');
   } else {
     playerPosition.y -= (elementsSize * 0.97);
     startGame();
@@ -238,8 +233,8 @@ function moveUp () {
   }
 }
 function moveLeft () {
-    if ((playerPosition.x - elementsSize) < elementsSize * 0.4) {
-       // console.log('fuera');
+    if ((playerPosition.x - elementsSize) < elementsSize * 0.80) {
+       // console.log('out');
       } else {
         playerPosition.x -= (elementsSize * 0.93);
         startGame();
@@ -248,7 +243,7 @@ function moveLeft () {
 }
 function moveRight () {
     if ((playerPosition.x - elementsSize) > canvasSize * 0.80) {
-        //console.log('fuera');
+        //console.log('out');
       } else {
         playerPosition.x += (elementsSize * 0.93);
         startGame();
@@ -257,7 +252,7 @@ function moveRight () {
 }
 function moveDown () {
     if ((playerPosition.y - elementsSize) > canvasSize * 0.84) {
-       // console.log('fuera');
+       // console.log('out');
       } else {
         playerPosition.y += (elementsSize * 0.97);
         startGame();
@@ -267,3 +262,15 @@ function moveDown () {
     //console.log('Down down down ');
     
 }
+function restartGame () {
+  const restartDiv = document.createElement('div');
+  restartDiv.classList.add('restart-container');
+  restartDiv.textContent = 'Wanna try again?'  
+  const restartButton = document.createElement('button');
+  restartButton.classList.add('restart-button');
+  restartButton.addEventListener('click',() => {location.reload()});
+  
+  restartDiv.appendChild(restartButton);
+  gameContainer.appendChild(restartDiv);
+}
+// restartGame();
