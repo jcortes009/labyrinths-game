@@ -14,19 +14,19 @@ const emojis = {
     'WIN': '🚀',
     'HEART': '❤',
   };
-  //💣🌳🐒🦧🦊🐶👨‍🚀🎁🎇🌚🌑🏆
+
   
   const maps = [];
   maps.push(`
-    IXXXXXXXXX
+    IXXYXXXXXX
+    -XXXXXYXXX
     -XXXXXXXXX
-    -XXXXXXXXX
-    -XYXXXXXXX
+    -XYXXXXXYX
     -XXXXXXXXX
     -XXXXXYXXX
     -XXXXXXXXX
     -XXXYXXXXX
-    -XXXXXXXXX
+    -XYXXXXXXX
     OXXXXXXXXX
   `);
   maps.push(`
@@ -34,46 +34,46 @@ const emojis = {
     X--XXXYXXX
     XX----XXXX
     X--XX-XXXX
-    X-XXX--XXX
-    X-XXXX-XXX
+    X-XYX--XXX
+    X-XYXX-XXX
     XX--XX--XX
-    XX--XXX-XX
+    XX--XYX-XX
     XXXY---IXX
-    XXXXXXXXXX
+    XYXXXXXXXX
     `);
   maps.push(`
     I-----XYXX
     XXXYX-XXXX
-    XX----XXXX
+    YX----XXXX
     XX-XXXXXYX
     XX-----XXX
-    XXXXXX-XYX
+    XYXXXX-XYX
     XX-----XXX
     YX-XXXXXXX
     XX-----OXX
     XXXXXXXXXX
   `);
   maps.push(`
-    O-----XXXX
+    O-----XXYX
     XXXXX-XXXX
-    XX----XXXX
-    X--XXXXXX
+    YX----XXXX
+    X--XXXYXX
     XX-----XXX
-    XXXXXX-XXX
-    XXXXXX---X
-    XXXXXXX-X
+    XYXXXX-XXX
+    XXYXXX---X
+    XXXYYXX-X
     -XXX-----X
-    -I---XXXXX
+    -I---XXXXY
   `);
   maps.push(`
     I--------X
-    -XXXX-XX-X
-    XX----XX-X
+    XYXXX-XX-X
+    XX----XY-X
     -XX-XXXX-X
-    -X---X---X
+    -Y---X---Y
     -XXXXX-XXX
-    -X-----XXX
+    -Y-----XXX
     -X-XXXXXXX
-    ---X---XXX
+    Y--Y---XXX
     XOXXXXXXXX
   `);
