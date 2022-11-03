@@ -9,6 +9,7 @@ const emojis = {
     'X': '🪐',
     'Y': '🛸',
     'I': '🌌 ',
+    'COLLITION': '💥 ',
     'PLAYER': ' 👨‍🚀 ',
     'GAME_OVER': '😐',
     'WIN': '🚀',

@@ -137,6 +137,7 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
      
       if (enemyCollison) {
         // console.log('boom boom ');
+        game.fillText(emojis['COLLITION'], playerPosition.x, playerPosition.y)
         gameOver()
       } 
 
@@ -184,7 +185,7 @@ const galaxyCollision = galaxyCollisionX && galaxyCollisionY;
   }
    playerPosition.x = undefined;
    playerPosition.y = undefined;
-  startGame();
+  
  }
 
 function showLives () {
@@ -252,7 +253,7 @@ function moveDown () {
 function restartGame () {
   const restartDiv = document.createElement('div');
   restartDiv.classList.add('restart-container');
-  restartDiv.textContent = 'Wanna try again?'  
+  restartDiv.textContent = '🚀 You made it!!🚀 would you like to try again?'  
   const restartButton = document.createElement('button');
   restartButton.classList.add('restart-button');
   restartButton.addEventListener('click',() => {location.reload()});

@@ -117,7 +117,6 @@ body {
     justify-content: center;
     align-content: center;
     position: absolute;
-    flex-wrap: wrap;
     padding: 8px;
     top: 10%;
     width: 44%;
